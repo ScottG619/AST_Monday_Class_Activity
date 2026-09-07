@@ -2,6 +2,16 @@ from bank import BankAccount
 
 shared_account = BankAccount(100)
 
+def test_deposit_independent():
+    account = BankAccount(balance=100) #fresh account
+    account.deposit(50)
+    assert account.balance == 150
+
+def test_withdraw_independent():
+    account = BankAccount(balance=100) #fresh account
+    account.withdraw(30)
+    assert account.balance == 70
+    
 def test_a_deposit():
     shared_account.deposit(50)
     assert shared_account.balance == 150
